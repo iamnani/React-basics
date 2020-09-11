@@ -1,27 +1,26 @@
-import React, { useReducer, useContext } from "react";
+import React, { useReducer } from "react";
 import "./App.css";
-import ComponentC from "./components/hook-context/ComponentC";
-import ReducerCounter from "./components/ReducerCounter";
-
-import CompA from "./components/reducer-context/CompA";
-import CompB from "./components/reducer-context/CompB";
-import CompC from "./components/reducer-context/CompC";
+import DocumentTitleOne from "./components/custom-hooks/DocumentTitleOne";
+import RefClassTimer from "./components/ref-hooks/RefClassTimer";
+import RefHookTimer from "./components/ref-hooks/RefHookTimer";
+import CustomHookCounterOne from "./components/custom-hooks/CustomHookCounterOne";
+import FormInputHook from "./components/custom-hooks/FormInputHook";
 
 export const UserContext = React.createContext();
 export const ChannelContext = React.createContext();
 
 export const CounterContext = React.createContext();
 
-const initialState = { count : 0, name:'Jakkani'};
+const initialState = { count: 0, name: "Jakkani" };
 
 export const counterReducer = (state, action) => {
   // console.log('Reducer--- ', action)
   switch (action) {
     case "inc":
-      console.log(state.count)
-      return {...state,  count : state.count + 1};
+      console.log(state.count);
+      return { ...state, count: state.count + 1 };
     case "dec":
-      return {...state,  count : state.count - 1};
+      return { ...state, count: state.count - 1 };
     case "reset":
       return initialState;
     default:
@@ -42,12 +41,28 @@ function App() {
 
       {/* <ReducerCounter />
        */}
-      <CounterContext.Provider
-        value={{ countDispatch: dispatch, reducerCounter: countObject}}>
+      {/* <CounterContext.Provider
+        value={{ countDispatch: dispatch, reducerCounter: countObject }}
+      >
         <CompA />
         <CompB />
         <CompC />
-      </CounterContext.Provider>
+      </CounterContext.Provider> */}
+
+      {/*       <DataFetchingWithReducer />
+       */}
+
+      {/* <ParentComponent /> */}
+
+      {/* <MemoCounter /> */}
+
+      {/* <InputTextRef/> */}
+
+      {/* <RefClassTimer /> */}
+      {/* <RefHookTimer /> */}
+      {/* <DocumentTitleOne /> */}
+      {/* <CustomHookCounterOne /> */}
+      <FormInputHook />
     </div>
   );
 }
